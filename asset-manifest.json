@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/nkoort/social-network/static/css/main.394f40ea.css",
+    "main.js": "/nkoort/social-network/static/js/main.85e29e3a.js",
+    "static/css/637.9e259f4b.chunk.css": "/nkoort/social-network/static/css/637.9e259f4b.chunk.css",
+    "static/js/637.237585ac.chunk.js": "/nkoort/social-network/static/js/637.237585ac.chunk.js",
+    "static/css/342.31d6cfe0.chunk.css": "/nkoort/social-network/static/css/342.31d6cfe0.chunk.css",
+    "static/js/342.26386e60.chunk.js": "/nkoort/social-network/static/js/342.26386e60.chunk.js",
+    "static/js/787.28cb0dcd.chunk.js": "/nkoort/social-network/static/js/787.28cb0dcd.chunk.js",
+    "static/media/avatar-svgrepo-com.svg": "/nkoort/social-network/static/media/avatar-svgrepo-com.b5689277955c9ebe3fb6b8aa6c109091.svg",
+    "index.html": "/nkoort/social-network/index.html",
+    "main.394f40ea.css.map": "/nkoort/social-network/static/css/main.394f40ea.css.map",
+    "main.85e29e3a.js.map": "/nkoort/social-network/static/js/main.85e29e3a.js.map",
+    "637.9e259f4b.chunk.css.map": "/nkoort/social-network/static/css/637.9e259f4b.chunk.css.map",
+    "637.237585ac.chunk.js.map": "/nkoort/social-network/static/js/637.237585ac.chunk.js.map",
+    "342.26386e60.chunk.js.map": "/nkoort/social-network/static/js/342.26386e60.chunk.js.map",
+    "787.28cb0dcd.chunk.js.map": "/nkoort/social-network/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.394f40ea.css",
+    "static/js/main.85e29e3a.js"
+  ]
+}
