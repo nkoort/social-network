@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Header from "./components/Header/Header";
+import style from "./App.module.css";
+import { Route, Routes, Router } from "react-router-dom";
+import SIdebarContainer from "./components/Sidebar/SIdebarContainer";
+// import DialogsContainer from "./components/Dialogs/DialogsContainer";
+// import NewsContainer from "./components/News/NewsContainer";
+import MusicContainer from "./components/Music/MusicContainer";
+import SettingsContainer from "./components/Settings/SettingsContainer";
+import FindUsersContainer from "./components/FindUsers/FindUsersContainer";
+import MainContenContainer from "./components/MainContent/MainContentContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginContainer from "./components/Login/LoginContainer";
+import { Suspense, lazy, Component } from "react";
+import { connect } from "react-redux";
+import { initializedTH } from "./Redux/app-reducer";
+import Preloader from "./components/Common/Preloader/preloader";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const DialogsContainer = lazy(() =>
+  import("./components/Dialogs/DialogsContainer")
+);
+const NewsContainer = lazy(() =>
+  import("./components/News/NewsContainer")
+);
+
+class App extends Component {
+  componentDidMount() {
+    this.props.initialized();
+  }
+
+  render() {
+
+    if (!this.props.initializedUser) {
+      return <Preloader />;
+    }
+    return (
+      <div className={style.wrapper}>
+        <HeaderContainer />
+        <SIdebarContainer />
+        <div className={style.content}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="/dialogs/*" element={<DialogsContainer />} />
+                <Route path="/news" element={<NewsContainer />} />
+              </Routes>
+            </Suspense>
+
+            <Routes>
+              <Route path="/profile/*" element={<MainContenContainer />} />
+              <Route path="/music" element={<MusicContainer />} />
+              <Route path="/findusers" element={<FindUsersContainer />} />
+              <Route path="/settings" element={<SettingsContainer />} />
+              <Route path="/login" element={<LoginContainer />} />
+            </Routes>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  initializedUser: state.initializedUser.isAuth,
+  id: state.auth,
+});
+
+export default connect(mapStateToProps, { initialized: initializedTH })(App);
